@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  pagehitdb:
+    image: mysql:8
+    container_name: pagehitdb
+    environment:
+    volumes:
+    ports:
+    networks:
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    depends_on:
+      - pagehitdb
+    ports:
+    networks:
+
+  pagehit:
+
+    build:
+    container_name: pagehit
+    depends_on:
+      - pagehitdb
+    environment:
+    volumes:
+    ports:
+    networks:
+    command:
+
+volumes:
+
+networks:

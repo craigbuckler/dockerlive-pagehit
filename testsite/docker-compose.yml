@@ -1,0 +1,12 @@
+version: '3'
+services:
+
+  php8site:
+    build:
+      context: ./config/
+      dockerfile: Dockerfile
+    container_name: php8site
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8101:80"

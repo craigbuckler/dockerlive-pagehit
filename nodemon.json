@@ -1,0 +1,12 @@
+{
+  "script": "./index.js",
+  "ext": "js json",
+  "ignore": [
+    ".git/",
+    "*.md",
+    "node_modules/"
+  ],
+  "legacyWatch": true,
+  "delay": 200,
+  "verbose": true
+}
