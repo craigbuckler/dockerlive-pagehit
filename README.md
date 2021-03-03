@@ -59,8 +59,10 @@ There are four ways to call the PageHit service from any web page to show the nu
 Add a counter image (SVG) to any page:
 
 ```html
-<img src="http://localhost:8104/hit.svg" alt="hits" />
+<img src="http://localhost:8104/hit.svg" alt="hits" referrerpolicy="unsafe-url" />
 ```
+
+Note: a `referrerpolicy` is required otherwise Chrome will not send the full URL with the domain and path.
 
 
 ### 2. Insert a script
@@ -68,7 +70,7 @@ Add a counter image (SVG) to any page:
 Add a script to any page:
 
 ```html
-<script src="http://localhost:8104/hit.js"></script>
+<script src="http://localhost:8104/hit.js" referrerpolicy="unsafe-url"></script>
 ```
 
 The following HTML is inserted into the page at the `<script>` location:
@@ -85,7 +87,7 @@ This method uses `document.write()` which may affect page loading performance.
 Add a deferred script to any page:
 
 ```html
-<script src="http://localhost:8104/hit-defer.js" async defer></script>
+<script src="http://localhost:8104/hit-defer.js" referrerpolicy="unsafe-url" async defer></script>
 ```
 
 The following HTML is inserted into the page at the `<script>` location:
@@ -110,7 +112,7 @@ Fetch the current number of page hits using an Ajax request to <http://localhost
   try {
 
     const
-      response = await fetch('http://localhost:8104/hit.json'),
+      response = await fetch('http://localhost:8104/hit.json', { referrerPolicy: 'unsafe-url' }),
       json = await response.json(),
       pc = document.querySelectorAll('.hits');
 
