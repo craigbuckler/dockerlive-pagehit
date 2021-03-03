@@ -19,7 +19,6 @@ services:
     networks:
 
   pagehit:
-
     build:
     container_name: pagehit
     depends_on:

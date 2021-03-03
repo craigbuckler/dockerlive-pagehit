@@ -7,3 +7,6 @@ docker*.yml
 .npm
 .vscode
 node_modules
+
+LICENSE
+README.md
